@@ -28,6 +28,7 @@
 
 ## Technologies Used
 |Technology|	Purpose|
+|----------|--------|
 |Flutter|	UI framework for cross-platform development|
 |Dart|	Programming language used in Flutter|
 |flutter_joystick|	Joystick package for motion control|
