@@ -38,13 +38,13 @@
 
 ## Installation & Setup
 # Prerequisites
-Install Flutter SDK (Download Here)
+Install Flutter SDK 
 
-Install Dart (Download Here)
+Install Dart 
 
-Install Git (Download Here)
+Install Git 
 
- #Clone the Repository
+ # Clone the Repository
 
 git clone https://github.com/SolomonNwachukwu/tracer_app_mvp.git
 cd tracer_app_mvp
