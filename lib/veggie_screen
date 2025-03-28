@@ -1,0 +1,283 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: VegetableInfoScreen(),
+    );
+  }
+}
+
+class VegetableInfoScreen extends StatefulWidget {
+  @override
+  _VegetableInfoScreenState createState() => _VegetableInfoScreenState();
+}
+
+class _VegetableInfoScreenState extends State<VegetableInfoScreen> {
+  // List to store saved recipes
+  List<String> savedRecipes = [];
+
+  // Function to add recipe to the saved list
+  void saveRecipe(String recipe) {
+    setState(() {
+      savedRecipes.add(recipe);
+    });
+  }
+
+  void unsaveRecipe(String recipe) {
+    setState(() {
+      savedRecipes.remove(recipe);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Vegetable Information"),
+      ),
+      backgroundColor: const Color.fromARGB(255, 191, 229, 207),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // 2 Columns Layout for Carrot Image and Name/Description
+            Row(
+              children: [
+                // Image on the left
+                Expanded(
+                  flex: 1,
+                  child: Image.asset('assets/images/Tomato.jpg'),
+                ),
+                SizedBox(width:20),
+                
+                // Container for Name and Description on the right
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    padding: EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Tomato', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                        SizedBox(height: 5),
+                        Text(
+                          '',
+                          style: TextStyle(fontSize: 16),
+                          textAlign: TextAlign.justify,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+
+            // Nutritional Value Title Container
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(' Nutritional Value', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            ),
+            SizedBox(height: 10),
+
+            // Nutritional Value Container
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildNutritionalItem('Calories', '18kcal'),
+                  _buildNutritionalItem('Carbohydrates', '3.9 g'),
+                  _buildNutritionalItem('Fiber', '2.9 g'),
+                  _buildNutritionalItem('Sugars', '4.7 g'),
+                  _buildNutritionalItem('Protein', '0.9 g'),
+                  _buildNutritionalItem('Fat', '0.2 g'),
+                  _buildNutritionalItem('Vitamin A', '835 µg'),
+                  _buildNutritionalItem('Vitamin C', '5.9 mg'),
+                  _buildNutritionalItem('Vitamin K', '13.2 µg'),
+                  _buildNutritionalItem('Vitamin B6', '0.1 mg'),
+                  _buildNutritionalItem('Potassium', '320 mg'),
+                  _buildNutritionalItem('Calcium', '33 mg'),
+                  _buildNutritionalItem('Magnesium', '12 mg'),
+                  _buildNutritionalItem('Iron', '0.3 mg'),
+                  _buildNutritionalItem('Water Content', '88%'),
+                  _buildNutritionalItem('Sodium', '69 mg'),
+                  _buildNutritionalItem('Beta-carotene', ' '),
+                  _buildNutritionalItem('Lutein', ' '),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+
+            // Allergy Warnings Container
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text('⚠️ Allergy Warnings', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            ),
+            SizedBox(height: 10),
+
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildAllergyWarning('Profilin'),
+                  _buildAllergyWarning('Lipid Transfer Protiens'),
+                  _buildAllergyWarning('Histamins'),
+                  _buildAllergyWarning('Salicyalates'),
+                  
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+
+            // Suggested Recipes Section
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text('🥗 Suggested Recipes', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            ),
+            SizedBox(height: 10),
+          
+            // Recipe 1 Container
+            _buildRecipeCard('Tomato Soup', saveRecipe, unsaveRecipe),
+            
+            // Recipe 2 Container
+            _buildRecipeCard('Caprese Salad', saveRecipe, unsaveRecipe),
+            
+            // Recipe 3 Container
+            _buildRecipeCard('Shakshuka', saveRecipe, unsaveRecipe),
+            
+            // Recipe 4 Container
+            _buildRecipeCard('Tomato Bruschetta', saveRecipe, unsaveRecipe),
+            
+            // Recipe 5 Container
+            _buildRecipeCard('Tomato and Basil pasta', saveRecipe, unsaveRecipe),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Helper function to build nutritional value items
+  Widget _buildNutritionalItem(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(label, style: TextStyle(fontSize: 16)),
+          Text(value, style: TextStyle(fontSize: 16)),
+        ],
+      ),
+    );
+  }
+
+  // Helper function to build allergy warnings
+  Widget _buildAllergyWarning(String warning) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Text(warning, style: TextStyle(fontSize: 16)),
+    );
+  }
+
+  // Helper function to create a recipe card with heart icon functionality
+  Widget _buildRecipeCard(String recipeName, Function(String) saveRecipe, Function(String) unsaveRecipe) {
+    return StatefulRecipeCard(recipeName: recipeName, saveRecipe: saveRecipe, unsaveRecipe: unsaveRecipe);
+  }
+}
+
+class StatefulRecipeCard extends StatefulWidget {
+  final String recipeName;
+  final Function(String) saveRecipe;
+  final Function(String) unsaveRecipe;
+
+  StatefulRecipeCard({required this.recipeName, required this.saveRecipe, required this.unsaveRecipe});
+
+  @override
+  _StatefulRecipeCardState createState() => _StatefulRecipeCardState();
+}
+
+class _StatefulRecipeCardState extends State<StatefulRecipeCard> {
+  bool isFavorited = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
+      padding: EdgeInsets.all(8.0),
+      margin: EdgeInsets.symmetric(vertical: 8.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 4)],
+      ),
+      child: Row(
+        children: [
+          SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              widget.recipeName,
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          IconButton(
+            icon: Icon(
+              isFavorited ? Icons.favorite : Icons.favorite_border,
+              color: isFavorited ? Colors.red : Colors.grey,
+            ),
+            onPressed: () {
+              setState(() {
+                isFavorited = !isFavorited;
+                
+              });
+
+              if (isFavorited) {
+                widget.saveRecipe(widget.recipeName);
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${widget.recipeName} saved!')));
+              } else {
+                widget.unsaveRecipe(widget.recipeName);
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('${widget.recipeName} unsaved!')));
+              }
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
