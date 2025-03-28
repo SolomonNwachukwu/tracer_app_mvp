@@ -147,50 +147,33 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset("assets/phone.png",
-                  height: MediaQuery.of(context).size.width * 0.4),
+              Image.asset(
+                "assets/images/phonetripod.png",
+                height: MediaQuery.of(context).size.width * 0.4,
+                color: Colors.white,
+              ),
               SizedBox(height: 20),
               Text(
-                "TESLA Model 3",
+                "TRIPOD",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: MediaQuery.of(context).size.width * 0.06,
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                "ER-234-RE",
+                "Model V1",
                 style: TextStyle(
                     color: Colors.grey,
                     fontSize: MediaQuery.of(context).size.width * 0.04),
               ),
               SizedBox(height: 30),
-              Container(
-                padding: EdgeInsets.all(66),
-                decoration: BoxDecoration(
-                  color: Colors.blue[900]!
-                      .withOpacity(0.1), // Increased transparency
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Column(
-                  children: [
-                    Text("Charging stations",
-                        style: TextStyle(color: Colors.white, fontSize: 18)),
-                    SizedBox(height: 10),
-                    Text("6098 Highway 7 Roy, California, U.S",
-                        style: TextStyle(color: Colors.grey)),
-                  ],
-                ),
-              ),
               SizedBox(height: 20),
               Row(
                 children: [
                   Expanded(
                       child: _buildInfoCard(
-                          "Battery", "73%", "305 kWh", "678 km")),
-                  SizedBox(width: 10),
-                  Expanded(
-                      child: _buildInfoCard(
-                          "Statistics", "4.56 km.", "1 kWh", "")),
+                          "Battery", "73%", "6 Hours Left", " ")),
+                  SizedBox(width: 10)
                 ],
               ),
               SizedBox(
@@ -273,8 +256,9 @@ class ModesScreen extends StatelessWidget {
               children: [
                 Center(
                   child: Image.asset(
-                    'assets/phone.png',
+                    'assets/images/phonetripod.png',
                     width: 300,
+                    color: Colors.white,
                   ),
                 ),
                 SizedBox(height: 16),
@@ -334,21 +318,6 @@ class ModesScreen extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class TrackingPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("ESP32 WiFi Communication")),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () => _ESP32CommunicationState().sendMessage("HelloESP"),
-          child: Text("Send Data to ESP32"),
         ),
       ),
     );
