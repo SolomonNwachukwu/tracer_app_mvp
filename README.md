@@ -34,42 +34,37 @@
 |flutter_joystick|	Joystick package for motion control|
 |ESP32|	Microcontroller for hardware communication|
 |HTTPS/Wi-Fi|	Wireless communication protocol|
-📦 Installation & Setup
-🔹 Prerequisites
+
+
+## Installation & Setup
+# Prerequisites
 Install Flutter SDK (Download Here)
 
 Install Dart (Download Here)
 
 Install Git (Download Here)
 
-🔹 Clone the Repository
-sh
-Copy
-Edit
+ #Clone the Repository
+
 git clone https://github.com/SolomonNwachukwu/tracer_app_mvp.git
 cd tracer_app_mvp
-🔹 Install Dependencies
-sh
-Copy
-Edit
+# Install Dependencies
+
 flutter pub get
-🔹 Run the App
-sh
-Copy
-Edit
+# Run the App
 flutter run
 (Ensure your device/emulator is connected and running.)
 
-⚙️ How It Works
-1️⃣ Open the app and connect it to the ESP32-based robotic system.
-2️⃣ Use the joystick for directional control of the robot.
-3️⃣ Adjust the left and right motor speeds using the provided sliders.
-4️⃣ The app sends commands over Wi-Fi (via MQTT or HTTP requests).
-5️⃣ The robot receives and executes movement commands accordingly.
+## How It Works
+- Open the app and connect it to the ESP32-based robotic system.
+- Use the joystick for directional control of the robot.
+- Adjust the left and right motor speeds using the provided sliders.
+- The app sends commands over Wi-Fi (via MQTT or HTTP requests).
+- The robot receives and executes movement commands accordingly.
 
-📌 To-Do / Future Improvements
-🔹 Add Bluetooth Support for offline communication.
-🔹 Implement Gesture Controls for smoother interaction.
-🔹 Enhance Real-Time Feedback with sensor data visualization.
-🔹 Optimize UI/UX for a more immersive user experience.
+## To-Do / Future Improvements
+- Add Bluetooth Support for offline communication.
+- Implement Gesture Controls for smoother interaction.
+- Enhance Real-Time Feedback with sensor data visualization.
+- Optimize UI/UX for a more immersive user experience.
 
