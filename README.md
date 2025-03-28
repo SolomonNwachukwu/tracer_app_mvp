@@ -1,4 +1,4 @@
-📌 Tracer App MVP
+###Tracer App MVP
 🚀 Tracer App MVP is a Flutter-based control interface for remotely operating robotic systems, integrating joystick-based motion control, real-time ESP32 communication, and motor speed adjustments via sliders.
 
 
