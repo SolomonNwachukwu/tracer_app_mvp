@@ -1,7 +1,10 @@
 ### Tracer App MVP
  Tracer App MVP is a Flutter-based control interface for remotely operating robotic systems, integrating joystick-based motion control, real-time ESP32 communication, and motor speed adjustments via sliders.
 
+## Video
 
+https://youtu.be/Hh5FOImILwY
+<iframe width="1294" height="729" src="https://www.youtube.com/embed/Hh5FOImILwY" title="EvoBot- The Robotic Tripod" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 ## Features
